@@ -3,7 +3,7 @@
     <img src="./assets/logo.png">
     <ul>
       <li v-for="message in messages">
-         {{ message.message }}
+         <message :text="message.message"></message>
       </li>
     </ul>
     <input type="text" @keyup.enter="sendMessage">
@@ -11,11 +11,14 @@
 </template>
 
 <script>
-import Hello from './components/Hello'
-import io from 'socket.io-client'
+import io from 'socket.io-client';
+import Message from './components/Message';
 
 export default {
   name: 'app',
+  components: {
+    Message
+  },
   data: function() {
     return {
       messages: [],
