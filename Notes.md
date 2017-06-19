@@ -7,7 +7,6 @@
 * Let's make a simple message stream that we can post a message to. This will require wiring up socket.io. Let's do that first.
   * As a note, I will be using port 8081 for the client application and 8082 for the server.
   * The focus of this is not the server, but let me briefly explain what it does.
-  * `npm install fetch --save`
   * `npm install socket.io --save`
 
 * Let's set a data property to be a list for the messages

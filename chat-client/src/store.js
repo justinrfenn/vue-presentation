@@ -41,10 +41,10 @@ export const store = new Vuex.Store({
   },
   actions: {
     connectRoom(context, room){
-      let url = "http://localhost:8082/api/rooms/"+room;
+      let url = "http://jfenn.ad.dealeron.com:8082/api/rooms/"+room;
       fetch(url, {method: 'put'})
       .then(()=>{
-        socket = io.connect("http://localhost:8082").io.socket("/rooms/"+room);
+        socket = io.connect("http://jfenn.ad.dealeron.com:8082").io.socket("/rooms/"+room);
         context.dispatch('initializeRoom', url);
       });
     },

@@ -6,6 +6,7 @@
     @keyup.enter="sendMessage"
     ></textarea>
   </div>
+  
 </template>
 
 <script>

@@ -1,58 +1,55 @@
 <template>
   <div class="stream">
     <ul>
-      <li v-for="msg in messages">
-        <message :message-in="msg" v-scroll-lock></message>
+      <li v-for="message in messages">
+        <Message 
+        :text="message.message"
+        :when="message.when"
+        :from="message.from" 
+        v-scroll-lock
+        ></Message>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-
-import Message from './Message';
+import Message from './Message'
 
 export default {
-  name: 'stream',
+  name: 'app',
   components: {
     Message
   },
-  computed: {
-    messages() {
-      return this.$store.getters.messages;
-    }
-  },
+  props: ['messages'],
   directives: {
     scrollLock: {
       inserted: function(el){
         let containerElement = document.getElementsByClassName("stream")[0];
+        console.log(containerElement);
         containerElement.scrollTop = containerElement.scrollHeight;
       }
     }
-  },
-  created(){
-    this.$store.dispatch('connectRoom', 'sample');
   }
-};
-
+}
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .stream {
   overflow-y: auto;
-  
+  height: 80vh;
+  border-style: inset;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+  background-color: #35495E;
 }
 
 li {
   margin: 5px;
-  background-color: #35495E;
 }
 
 @media only screen and (min-width: 900px) {

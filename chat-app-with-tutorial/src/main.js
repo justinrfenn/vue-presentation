@@ -5,9 +5,12 @@ import App from './App'
 
 Vue.config.productionTip = false
 
+import { store } from './store'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   template: '<App/>',
-  components: { App }
+  components: { App },
+  store
 })
